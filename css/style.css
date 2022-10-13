@@ -12,7 +12,7 @@ TABLE OF CONTENTS
 4 COMPONENTS
 5 MEDIA QUERIES
 
-============= */
+*/
 
 /* PROPERTY ORDER:
     - Display (float, grid, flex)
@@ -23,28 +23,24 @@ TABLE OF CONTENTS
     - Misc (border radius, box shadow)
 */
 
+
 /* ==================== */
 /* ===== 1 GLOBAL ===== */
 /* ==================== */
+
 :root {
 	--clr-light: #d9a577;
 	--clr-dark: #403027;
 	--clr-accent: #f2ab6d;
 
-	/*  */
-	--clr-med-dark: #a6775b;
-	--clr-light-dark: #735340;
-	/*  */
-
 	--ff-primary: "Montserrat", sans-serif;
-	--ff-secondary: ;
 
-	--fs-h1: 3rem;
-	--fs-h2: 2.7rem;
-	--fs-h3: 2.5rem;
-	--fs-search: 2rem;
-	--fs-sidebar: 1.8rem;
-	--fs-footer: 1.4rem;
+	--fs-h1: clamp(2.5rem, 2.5rem + 0.5vw, 3.5rem);
+	--fs-h2: clamp(2.3rem, 2.3rem + 0.5vw, 3rem);
+	--fs-h3: clamp(1.8rem, 1.8rem + 0.4vw, 2.3rem);
+	--fs-search: clamp(1.5rem, 1.5rem + 0.5vw, 2.4rem);
+	--fs-sidebar: clamp(1.2rem, 1.2rem + 0.5vw, 1.9rem);
+	--fs-footer: 1.3rem;
 
 	--fw-regular: 400;
 	--fw-thick: 500;
@@ -53,6 +49,8 @@ TABLE OF CONTENTS
 	--spacer-sm: ;
 	--spacer-md: calc(var(--spacer-sm) * 3);
 	--spacer-lg: calc(var(--spacer-md) * 4);
+
+	--box-shadow: 0 0.1rem .5rem rgba(0, 0, 0, 0.45), 0 0.1rem 0.2rem rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -74,6 +72,7 @@ body {
 	background-color: var(--clr-light);
 	color: var(--clr-dark);
 }
+
 
 /* ======================== */
 /* ===== 2 TYPOGRAPHY ===== */
@@ -98,14 +97,6 @@ a {
 	color: inherit;
 }
 
-/* PROPERTY ORDER:
-    - Display (float, grid, flex)
-    - Positioning
-    - Box modelling (background, height, width, border, padding, text alignment, )
-    - Typography
-    - Manipulation (transform, filter, opacity)
-    - Misc (border radius, box shadow)
-*/
 
 /* ==================== */
 /* ===== 3 LAYOUT ===== */
@@ -167,11 +158,26 @@ a {
   overflow: auto;
 }
 
+.brand-img {
+	width: 70vw;
+	max-width: 40rem;
+	margin: auto;
+	margin-top: 5%;
+}
+
+.brand-img img {
+	width: 100%;
+}
+
+.brand-img.hide {
+	display: none;
+}
+
 .meals-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(20rem, 25rem));
-	gap: 4rem;
 	justify-content: center;
+	gap: 4rem;
 	padding: 3rem;
 }
 
@@ -180,19 +186,20 @@ a {
 	overflow: hidden;
 	border-radius: 0.5rem;
 	cursor: url(../img/cursor.cur), auto;
+	box-shadow: var(--box-shadow);
 }
 
 .meal-info {
+	display: flex;
 	position: absolute;
 	inset: 0;
-	display: flex;
 	align-items: center;
 	justify-content: center;
 	background-color: rgba(0, 0, 0, 0.7);
+	padding: 1rem;
 	opacity: 0;
 	color: #fff;
 	text-align: center;
-	padding: 1rem;
 	transition: opacity 0.3s ease-in;
 }
 
@@ -204,9 +211,6 @@ a {
 	width: 100%;
 	height: 100%;
 }
-
-
-
 
 /* ===== 3.4 FOOTER =====*/
 footer {
@@ -254,9 +258,6 @@ footer {
 	margin-bottom: 2rem;
 }
 
-/* .close-sidebar-btn { */
-/* } */
-
 .close-sidebar-btn i {
 	padding: 0.5rem;
 	transform: rotateZ(180deg);
@@ -272,19 +273,26 @@ footer {
 .instructions-title,
 .video-title {
 	margin-bottom: 1rem;
+	padding-block: .5rem;
 	background-color: var(--clr-light);
-	border-radius: 0.5rem;
 	color: var(--clr-dark);
+	border-radius: 0.5rem;
+	box-shadow: var(--box-shadow);
 }
 
 .image-container img {
-	border-radius: 0.5rem;
 	width: 100%;
+	border-radius: 0.5rem;
+	box-shadow: var(--box-shadow);
 }
 
-.ingredient-list,
+.ingredient-list {
+	line-height: 1.8;
+}
+
 .instructions-text {
-	line-height: 1.5;
+	line-height: 1.6;
+	text-align: left;
 }
 
 .video-container {
@@ -294,45 +302,32 @@ footer {
 .video-container video {
   width: 100%;
   border-radius: 0.5rem;
+	box-shadow: var(--box-shadow);
 }
-
 
 
 /* ======================== */
 /* ===== 4 COMPONENTS ===== */
 /* ======================== */
 
-/* Sidebars */
+/* Scrollbars */
 ::-webkit-scrollbar {
 	width: 0.85rem;
 }
-
 ::-webkit-scrollbar-thumb {
 	background-color: var(--clr-dark);
-	border-radius: 100vw;
 	border: 0.15rem solid var(--clr-light);
+	border-radius: 100vw;
 }
-
 ::-webkit-scrollbar-track {
 	background-color: var(--clr-light);
 }
-
 @supports (scrollbar-color: var(--clr-dark) var(--clr-light)) {
 	* {
 		scrollbar-color: var(--clr-dark) var(--clr-light);
 		scrollbar-width: auto;
 	}
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /* =========================== */
@@ -343,11 +338,15 @@ footer {
 	.main-header {
 		flex-direction: column;
 	}
+	.meals-container {
+		height: 76vh;
+	}
 	.meals-grid {
 		grid-template-columns: 35rem;
 	}
-  .meals-container {
-    height: 76vh;
+	.meal-info {
+		top: 75%;
+		opacity: 1;
 	}
 	.sidebar {
 		width: 100%;

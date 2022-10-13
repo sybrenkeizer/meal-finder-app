@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+  <title>Meal Finder</title>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <header class="main-header">
+      <h1 class="main-header__title">The Meal Finder</h1>
+      <!-- Search -->
+      <div class="search-container">
+        <i class="fa fa-search search-icon"></i>
+        <input type="search" id="search-input" class="search-input">
+      </div>
+    </header>
+
+    <main>
+
+      <div class="hud">
+        <h2 id="hud-text" class="hud-text"></h2>
+      </div>
+
+      <!-- Grid -->
+      <div id="meals-container" class="meals-container">
+        <div class="container-fade"></div>
+        <div id="meals-grid" class="meals-grid"></div>
+      </div>
+
+    </main>
+    
+    <footer>
+      <small>&copy; <span id="footer__date">2022</span>, The Meal Finder. No Rights Reserved.</small>
+    </footer>
+  </div>
+
+  <!-- Sidebar Popup-->
+  <div class="sidebar-background" id="sidebar-background"></div>
+  <aside id="sidebar" class="sidebar"></aside>
+
+</body>
+</html>

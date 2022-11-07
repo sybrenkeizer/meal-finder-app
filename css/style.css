@@ -62,7 +62,6 @@ TABLE OF CONTENTS
 	padding: 0;
 	outline: none;
 	text-decoration: none;
-	font-family: var(--ff-primary);
 }
 
 html {
@@ -73,6 +72,7 @@ html {
 body {
 	background-color: var(--clr-light);
 	color: var(--clr-dark);
+	font-family: var(--ff-primary);
 }
 
 
